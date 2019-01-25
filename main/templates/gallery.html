@@ -1,0 +1,45 @@
+{% extends "base_without_carousel.html" %}
+
+{% block page_content %}
+<script type="text/javascript">
+
+			jQuery(document).ready(function(){
+				jQuery("#gallery").unitegallery({
+				tiles_type:"justified"
+			    });
+			});
+
+		</script>
+
+        <div id="gallery" style="display:none;">
+
+			<img alt="Image 1 Title" src="../static/main/images/asd.jpg"
+				data-image="../static/main/images/asd.jpg"
+				data-description="Image 1 Description">
+
+			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
+				data-image="../static/main/images/asd.jpg"
+				data-description="Image 2 Description">
+
+        			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
+				data-image="../static/main/images/asd.jpg"
+				data-description="Image 2 Description">
+
+        			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
+				data-image="../static/main/images/asd.jpg"
+				data-description="Image 2 Description">
+
+        			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
+				data-image="../static/main/images/asd.jpg"
+				data-description="Image 2 Description">
+
+                			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
+				data-image="../static/main/images/asd.jpg"
+				data-description="Image 2 Description">
+
+                			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
+				data-image="../static/main/images/asd.jpg"
+				data-description="Image 2 Description">
+
+		</div>
+{% endblock %}

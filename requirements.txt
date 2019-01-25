@@ -1,0 +1,15 @@
+certifi==2018.11.29
+chardet==3.0.4
+Django==2.1.5
+get==2018.11.19
+idna==2.8
+Pillow==5.4.1
+post==2018.11.20
+postgres==2.2.2
+psycopg2-binary==2.7.6.1
+public==2018.11.20
+pytz==2018.9
+query-string==2018.11.20
+requests==2.21.0
+urllib3==1.24.1
+view==0.1

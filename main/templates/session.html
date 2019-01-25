@@ -1,0 +1,21 @@
+{% extends "base_without_carousel.html" %}
+
+{% block page_content %}
+
+
+
+    <div id="datetime-demo-holder" class="datetime-folder">
+        <input type="text" id="demo" class="demo" hidden>
+    </div>
+
+
+
+    <script>
+        tail.DateTime("#demo", {
+      position: "#datetime-demo-holder",
+      startOpen: true,
+      stayOpen: true
+    });
+    </script>
+
+{% endblock %}

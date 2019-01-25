@@ -1,0 +1,56 @@
+{% extends "base_without_carousel.html" %}
+
+{% block page_content %}
+
+    <style>
+
+    body {
+      padding-top: 54px;
+    }
+
+    @media (min-width: 992px) {
+      body {
+        padding-top: 56px;
+      }
+    }
+
+    </style>
+
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+          <h1 class="my-4">Blog
+          </h1>
+
+            {% for post in posts %}
+                <!-- Blog Post -->
+                  <div class="card mb-4">
+                    <img class="card-img-top" src="{{ post.picture.url }}" alt="Card image cap">
+                    <div class="card-body">
+                      <h2 class="card-title">{{ post.title }}</h2>
+                      <p class="card-text">{{ post.post }}</p>
+                      <a href="#" class="btn btn-primary">Czytaj dalej &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                      Dodano {{ post.date }}
+                    </div>
+                  </div>
+            {% endfor %}
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+              <a class="page-link" href="#">&larr; Starsze</a>
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Nowsze &rarr;</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+{% endblock %}

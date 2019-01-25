@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dziki Pik</title>
+
+      <link rel="stylesheet" href="../static/main/css/tail.datetime-default.css">
+        <script src="../static/main/js/tail.datetime.js"></script>
+
+      <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+      <!-- Bootstrap core JavaScript -->
+    <script src="../static/main/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+      <!-- Bootstrap core CSS -->
+    <link href="../static/main/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+      <link href="../static/main/css/modal.css" rel="stylesheet">
+    <link href="../static/main/css/half-slider.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Dziki Pik</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Strona Główna</a>
+                <span class="sr-only">(current)</span>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/blog/">Blog</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/galeria/">Galeria</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cennik/">Cennik</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/kontakt/">Kontakt</a>
+            </li>
+              <li clas="nav-item">
+              <a class="nav-link" href="" data-toggle="modal" data-target="#modalLoginForm">Zaloguj</a>
+              </li>
+              {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="/sesja/">Umów sesje</a>
+            </li>
+              {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>First Slide</h3>
+              <p>This is a description for the first slide.</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Second Slide</h3>
+              <p>This is a description for the second slide.</p>
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Third Slide</h3>
+              <p>This is a description for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <section class="py-5">
+      <div class="container">
+        {% block page_content %}{% endblock %}
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Bartłomiej Głowacz 2018</p>
+      </div>
+
+    </footer>
+
+        <!-- Login panel -->
+        <form method="post">
+      <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Panel logowania</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="email" id="defaultForm-email" class="form-control validate" name="login">
+              <label data-error="wrong" data-success="right" for="defaultForm-email">Adres e-mail</label>
+            </div>
+
+            <div class="md-form mb-4">
+              <i class="fas fa-lock prefix grey-text"></i>
+              <input type="password" id="defaultForm-pass" class="form-control validate" name="password">
+              <label data-error="wrong" data-success="right" for="defaultForm-pass">Hasło</label>
+            </div>
+                <a href="/register/">Nie masz konta ? Zarejestruj się !</a>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" formaction="login" class="btn btn-default">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        </form>
+    <!-- End of login panel -->
+
+  </body>
+
+</html>
