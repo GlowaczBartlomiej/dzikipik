@@ -539,9 +539,7 @@
             if(this.con.dateFormat){
                 this.renderDatePicker(dt, this.con.viewDefault);
             }
-            if(this.con.timeFormat){
-                this.renderTimePicker(dt);
-            }
+
 
             // Render Close Button
             if(this.con.closeButton && !_s){

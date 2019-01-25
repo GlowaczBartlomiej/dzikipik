@@ -51,18 +51,22 @@
               <a class="nav-link" href="/galeria/">Galeria</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cennik/">Cennik</a>
+              <a class="nav-link" href="/cennik/">Oferta</a>
             </li>
               <li class="nav-item">
               <a class="nav-link" href="/kontakt/">Kontakt</a>
             </li>
-              <li clas="nav-item">
-              <a class="nav-link" href="" data-toggle="modal" data-target="#modalLoginForm">Zaloguj</a>
-              </li>
               {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="/sesja/">Umów sesje</a>
             </li>
+                  <li class="nav-item">
+              <a class="nav-link" href="/logout/">Wyloguj</a>
+            </li>
+              {% else %}
+                  <li clas="nav-item">
+                  <a class="nav-link" href="" data-toggle="modal" data-target="#modalLoginForm">Zaloguj</a>
+              </li>
               {% endif %}
           </ul>
         </div>
@@ -119,7 +123,7 @@
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
-      <div class="container">
+      <div class="">
         <p class="m-0 text-center text-white">Copyright &copy; Bartłomiej Głowacz 2018</p>
       </div>
 
@@ -127,6 +131,7 @@
 
         <!-- Login panel -->
         <form method="post">
+            {% csrf_token %}
       <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -152,7 +157,7 @@
                 <a href="/register/">Nie masz konta ? Zarejestruj się !</a>
           </div>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" formaction="login" class="btn btn-default">Login</button>
+            <button type="submit" formaction="/login/" class="btn btn-default">Login</button>
           </div>
         </div>
       </div>

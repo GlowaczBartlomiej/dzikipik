@@ -1,13 +1,16 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.core.checks import messages
+from django.db import IntegrityError
+from django.http import HttpResponse
+from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from django.shortcuts import render
 from django.views import View
 
 
-from main.models import Post
+from main.models import Post, Image
 
 
 class IndexView(View):
@@ -26,7 +29,8 @@ class BlogView(View):
 class GalleryView(View):
 
     def get(self, request):
-        return render(request, "gallery.html")
+        images = Image.objects.all()
+        return render(request, "gallery.html", {"images": images})
 
 
 class PricingView(View):
@@ -44,8 +48,8 @@ class ContactView(View):
 class LoginView(View):
 
     def post(self, request):
-        email = request.POST.get("defaultForm-email")
-        password = request.POST.get("defaultForm-pass")
+        email = request.POST.get("login")
+        password = request.POST.get("password")
         user = authenticate(username=email, password=password)
         if user is not None:
             login(request, user)
@@ -63,13 +67,33 @@ class RegisterView(View):
         email = request.POST.get("email")
         password = request.POST.get("psw")
         password2 = request.POST.get("psw-repeat")
+        info = "Niepoprawny adres email i/lub hasło"
         if password == password2:
-            new_user = User.objects.create_user(username=email, email=email, password=password)
-            new_user.save()
-            return render(request, "register.html")
+            try:
+                new_user = User.objects.create_user(username=email, email=email, password=password)
+                new_user.save()
+            except IntegrityError:
+                info = "Użytkownik już istnieje"
+                return render(request, "register.html", {"info": info})
+            return redirect("/")
+        return render(request, "register.html", {"info": info})
 
 
 class SessionView(View):
 
     def get(self, request):
         return render(request, "session.html")
+
+
+class PostView(View):
+
+    def get(self, request, id):
+        post = Post.objects.get(id=id)
+        return render(request, "post.html", {"post":post})
+
+
+class LogoutView(View):
+
+    def get(self, request):
+        logout(request)
+        return redirect("/")

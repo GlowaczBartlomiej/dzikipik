@@ -13,33 +13,12 @@
 
         <div id="gallery" style="display:none;">
 
-			<img alt="Image 1 Title" src="../static/main/images/asd.jpg"
-				data-image="../static/main/images/asd.jpg"
-				data-description="Image 1 Description">
+        {% for image in images %}
+            <img alt="{{ image.title }}" src="{{ image.picture.url }}"
+                 data-image="{{ image.picture.url }}"
+				data-description="{{ image.description }}">
+        {% endfor %}
 
-			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
-				data-image="../static/main/images/asd.jpg"
-				data-description="Image 2 Description">
-
-        			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
-				data-image="../static/main/images/asd.jpg"
-				data-description="Image 2 Description">
-
-        			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
-				data-image="../static/main/images/asd.jpg"
-				data-description="Image 2 Description">
-
-        			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
-				data-image="../static/main/images/asd.jpg"
-				data-description="Image 2 Description">
-
-                			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
-				data-image="../static/main/images/asd.jpg"
-				data-description="Image 2 Description">
-
-                			<img alt="Image 2 Title" src="../static/main/images/asd.jpg"
-				data-image="../static/main/images/asd.jpg"
-				data-description="Image 2 Description">
 
 		</div>
 {% endblock %}

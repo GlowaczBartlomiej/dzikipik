@@ -27,6 +27,7 @@ SECRET_KEY = 'j9v%eu251n@7mxj8mc9r0*s&2(^o130q$pdr76gselz3!h@ats'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+APPEND_SLASH=False
 
 
 # Application definition
@@ -81,10 +82,10 @@ DATABASES = {
     'default': {
 
         'HOST': '127.0.0.1',
-        'NAME': 'test',
+        'NAME': 'dzikipik',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
-        'PASSWORD': 'glowacz7',
+        'PASSWORD': 'coderslab',
 
     }
 

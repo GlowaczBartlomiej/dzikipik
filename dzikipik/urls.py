@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import path
 
 from dzikipik import settings
-from main.views import IndexView, BlogView, GalleryView, PricingView, ContactView, LoginView, RegisterView, SessionView
+from main.views import IndexView, BlogView, GalleryView, PricingView, ContactView, LoginView, RegisterView, SessionView, \
+    PostView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,8 +30,10 @@ urlpatterns = [
     url('cennik/', PricingView.as_view(), name="pricing"),
     url('kontakt/', ContactView.as_view(), name="contact"),
     url('login/', LoginView.as_view(), name="login"),
+    url('logout/', LogoutView.as_view(), name="logout"),
     url('register/', RegisterView.as_view(), name="register"),
     url('sesja/', SessionView.as_view(), name="session"),
+    url('post/(?P<id>(\d)+)', PostView.as_view(), name="post"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
